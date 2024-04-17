@@ -1,38 +1,49 @@
-<h1>Bibilomart</h1>
-<h2>Overview</h2>
-Bibilomart is a project aimed at creating a comprehensive online platform for buying and selling books. Whether you're a book lover looking to expand your collection or a seller wanting to reach a wider audience, Bibilomart provides the tools and marketplace for all your needs.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibilomart</title>
+</head>
+<body>
+    <header>
+        <h1>Bibilomart</h1>
+        <p>A comprehensive online platform for buying and selling books.</p>
+    </header>
 
-<h2>Features</h2>
-User Authentication: Secure user authentication system allowing users to sign up, log in, and manage their accounts.
-Browse and Search: Users can browse through a wide variety of books or use the search functionality to find specific titles, authors, or genres.
-Product Listings: Sellers can easily list their books for sale, including detailed descriptions, images, and pricing information.
-Shopping Cart: Seamless shopping cart functionality allowing users to add books to their cart and proceed to checkout.
-Order Management: Users can track their orders and manage their purchases through an intuitive interface.
-Payment Integration: Secure payment processing integration, allowing users to make purchases using various payment methods.
-Reviews and Ratings: Users can leave reviews and ratings for books they've purchased, helping others make informed decisions.
-Responsive Design: The platform is designed to be responsive, ensuring a seamless experience across different devices and screen sizes.
+    <section>
+        <h2>Overview</h2>
+        <p>Bibilomart is a project aimed at creating a comprehensive online platform for buying and selling books. Whether you're a book lover looking to expand your collection or a seller wanting to reach a wider audience, Bibilomart provides the tools and marketplace for all your needs.</p>
+    </section>
 
-<h2>Installation</h2>
-To run Bibilomart locally, follow these steps:
+    <section>
+        <h2>Features</h2>
+        <ul>
+            <li>User Authentication</li>
+            <li>Browse and Search</li>
+            <li>Product Listings</li>
+            <li>Shopping Cart</li>
+            <li>Order Management</li>
+            <li>Payment Integration</li>
+            <li>Reviews and Ratings</li>
+            <li>Responsive Design</li>
+        </ul>
+    </section>
 
-Clone this repository to your local machine.
-Navigate to the project directory.
-Install dependencies by running npm install or yarn install.
-Set up environment variables as needed.
-Start the development server by running npm start or yarn start.
-Access the application in your web browser at http://localhost:3000.
+    <section>
+        <h2>Installation</h2>
+        <ol>
+            <li>Clone this repository to your local machine.</li>
+            <li>Navigate to the project directory.</li>
+            <li>Install dependencies by running <code>npm install</code> or <code>yarn install</code>.</li>
+            <li>Set up environment variables as needed.</li>
+            <li>Start the development server by running <code>npm start</code> or <code>yarn start</code>.</li>
+            <li>Access the application in your web browser at <code>http://localhost:3000</code>.</li>
+        </ol>
+    </section>
 
-<h2>Technologies Used</h2>
-Frontend: React.js, Redux, HTML, CSS
-Backend: Node.js, Express.js, MongoDB
-Authentication: JSON Web Tokens (JWT)
-Payment Processing: Stripe API
-Deployment: Heroku, Netlify
-Contributing
-Contributions to Bibilomart are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
-
-<h2>Acknowledgements</h2>
-The Bibilomart team acknowledges the invaluable support of the open-source community and the contributions of its members.
-Special thanks to [Insert Name Here] for their guidance and mentorship throughout the development process.
-Contact
-For any inquiries or support, please contact [insert email or contact information].
+    <footer>
+        <p>&copy; 2024 Bibilomart. All rights reserved.</p>
+    </footer>
+</body>
+</html>
