@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <title>Log In - Bibliomart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #edf5e1; /* Updated background color */
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: darkblue;
+      color: whitesmoke;
+      text-align: center;
+      padding: 25px 25;
+    }
+    .content {
+      margin: 20px auto;
+      max-width: 500px; /* Reduced max-width for better readability */
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff; /* Changed background color for the login box */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .form-container {
+      max-width: 400px; /* Adjusted max-width for the form */
+      margin: 0 auto;
+    }
+    h2 {
+      color: darkblue;
+      text-align: center; /* Centered the heading */
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555; /* Dimmed label color for better contrast */
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button[type="submit"] {
+      background-color: darkblue;
+      color: whitesmoke;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%; /* Make button full width */
+    }
+    button[type="submit"]:hover {
+      background-color: #00264d;
+    }
+    p {
+      margin-top: 15px;
+      text-align: center; /* Centered the paragraph */
+    }
+    a {
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Bibliomart</h1>
+  </div>
+  <div class="content">
+    <div class="form-container">
+      <h2>Log In</h2>
+      <form method="POST" action="/login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Log In</button>
+      </form>
+      <p>Don't have an account? <a href="/register">Create an account</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
