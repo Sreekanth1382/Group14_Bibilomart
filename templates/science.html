@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: #0056b3;
+            padding: 10px;
+            width: 150px; 
+            position: fixed;
+            top: 80px;
+            bottom: 0;
+            left: 0;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        .menu a:hover {
+            background-color: #003e82;
+        }
+
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-left: 170px; 
+        }
+
+        .book-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .book-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .book-author {
+            margin: 10px 0;
+        }
+
+        .book-price {
+            color: #0056b3;
+            font-size: 1.1em;
+        }
+
+        .order-button {
+            background-color: #00b327;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .order-button:hover {
+            background-color: #003e82;
+        }
+
+        .remove-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .remove-button:hover {
+            background-color: darkred;
+        }
+
+        .order-section {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .order-total {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .purchase-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #0056b3;
+            color: white;
+            cursor: pointer;
+        }
+  .paypal-wrapper {
+ 
+            display: inline-grid;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            width: 100%;
+            height: 100%; /* Ensure the wrapper takes the full height of the viewport */
+}
+
+        .purchase-button:hover {
+            background-color: #003e82;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" class="active">
+        <h1>Science and Engineering</h1>
+    </div>
+    <div class="menu" class="active">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('science') }}">Science & Engineering</a>
+        <a href="{{ url_for('books') }}">Information Technology</a>
+        <a href="{{ url_for('health') }}">Health Science</a>
+        <a href="{{ url_for('search') }}">Search Books</a>
+        <a href="{{ url_for('contact') }}">Contact Us</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <div class="content">
+        <!-- Book Container 1 -->
+        <div class="book-container">
+            <a href="Introduction to Physics.html">
+            <img src="{{ url_for('static', filename='images/physics.jpg') }}" alt="Physics" style="width: 150px; height: 200px;"></a>
+            <div class="book-title">Introduction to Physics</div>
+            <div class="book-author">Author: Jim Breithaupt</div>
+            <div class="book-price">$39.99</div>
+            <button class="order-button" data-title="Introduction to Physics" data-price="80.99">Order</button>
+        </div>
+
+        <!-- Book Container 2 -->
+        <div class="book-container">
+            <a href="Engineering Mechanics.html">
+            <img src="{{ url_for('static', filename='images/eng1.jpg') }}" alt="Engineering Mechanics" style="width: 150px; height: 200px;"></a>
+            <div class="book-title">Engineering Mechanics</div>
+            <div class="book-author">Author: Knowledge flow</div>
+            <div class="book-price">$49.99</div>
+            <button class="order-button" data-title="Engineering Mechanics" data-price="49.99">Order</button>
+        </div>
+
+        <!-- Book Container 3 -->
+        <div class="book-container">
+            <a href="Computer Science Fundamentals.html">
+            <img src="{{ url_for('static', filename='images/fud1.jpg') }}" alt="Computer Science Fundamentals" style="width: 150px; height: 200px;"></a>
+            <div class="book-title">Computer Science Fundamentals</div>
+            <div class="book-author">Author: Alan Johnson</div>
+            <div class="book-price">$29.99</div>
+            <button class="order-button" data-title="Computer Science Fundamentals" data-price="29.99">Order</button>
+        </div>
+
+        <!-- Book Container 4 -->
+        <div class="book-container">
+            <a href="Advanced Mathematics.html">
+            <img src="{{ url_for('static', filename='images/adv1.jpg') }}" alt="Advanced Mathematics" style="width: 190px; height: 160px;margin-bottom: 20px;margin-top: 20px; transform: rotate(90deg); "></a>
+            <div class="book-title">Advanced Mathematics</div>
+            <div class="book-author">Author:  Celia, A T F Nice</div>
+            <div class="book-price">$59.99</div>
+            <button class="order-button" data-title="Advanced Mathematics" data-price="59.99">Order</button>
+        </div>
+
+        <!-- Book Container 5 -->
+        <div class="book-container">
+            <a href="Electrical Engineering Principles.html">
+            <img src="{{ url_for('static', filename='images/pri1.jpg') }}" alt="Electrical Engineering Principles" style="width: 150px; height: 200px;"></a>
+            <div class="book-title">Electrical Engineering Principles</div>
+            <div class="book-author">Author: Allan Hambley</div>
+            <div class="book-price">$34.99</div>
+            <button class="order-button" data-title="Electrical Engineering Principles" data-price="34.99">Order</button>
+        </div>
+
+        <!-- Book Container 6 -->
+        <div class="book-container">
+            <a href="Chemical Engineering Basics.html">
+            <img src="{{ url_for('static', filename='images/chem1.jpg') }}" alt="Chemical Engineering Basics" style="width: 150px; height: 200px;"></a>
+            <div class="book-title">Chemical Engineering Basics</div>
+            <div class="book-author">Author: James Riggs</div>
+            <div class="book-price">$44.99</div>
+            <button class="order-button" data-title="Chemical Engineering Basics" data-price="44.99">Order</button>
+        </div>
+    </div>
+    <div class="order-section">
+        <h2>Your Orders</h2>
+        <ul class="order-list">
+        </ul>
+        <div class="order-total">Total: $<span id="total-amount">0.00</span></div>
+        <button class="purchase-button" onclick="showPaypalForm()">Purchase</button>
+    </div>
+    <div class="paypal-wrapper">
+    <!-- PayPal button will be rendered here -->
+</div>
+    <script src="https://www.paypal.com/sdk/js?client-id=Ab7ob8GCluhVGWWWpESFUEuMjFIUxM8ew8zaT1XZLUcmCB1VMedZguFoZ3Ga2RQyRG5kDUeLJMq5fMN7"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const orderButtons = document.querySelectorAll('.order-button');
+            const orderList = document.querySelector('.order-list');
+            const totalAmountElement = document.getElementById('total-amount');
+
+            orderButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const title = button.getAttribute('data-title');
+                    const price = parseFloat(button.getAttribute('data-price'));
+
+                    // Create list item for the order
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${title} - $${price.toFixed(2)}`;
+
+                    // Create remove button for the item
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.className = 'remove-button';
+
+                    // Add event listener to remove the item
+                    removeButton.addEventListener('click', () => {
+                        listItem.remove(); // Remove item from the list
+                        const currentTotal = parseFloat(totalAmountElement.innerText);
+                        const newTotal = currentTotal - price;
+                        totalAmountElement.innerText = newTotal.toFixed(2); // Update total amount
+                    });
+
+                    // Append remove button to the list item
+                    listItem.appendChild(removeButton);
+
+                    // Append list item to the order list
+                    orderList.appendChild(listItem);
+
+                    // Update total amount
+                    const currentTotal = parseFloat(totalAmountElement.innerText);
+                    const newTotal = currentTotal + price;
+                    totalAmountElement.innerText = newTotal.toFixed(2);
+                });
+            });
+        });
+
+        function showPaypalForm() {
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    let totalAmount = parseFloat(document.getElementById('total-amount').innerText);
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: totalAmount.toFixed(2),
+                                currency_code: 'USD'
+                            }
+                        }]
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                        
+                    });
+                },
+                onError: function (err) {
+                    console.error(err);
+                }
+            }).render('.order-section');
+        }
+        function showPaypalForm(){
+            paypal.Buttons({
+            }).render('.paypal-wrapper');
+        }
+    </script>
+</body>
+
+</html>

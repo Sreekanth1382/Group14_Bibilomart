@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #0056b3;
+        padding: 10px;
+        width: 150px; 
+        position: fixed;
+        top: 80px;
+        bottom: 0;
+        left: 0;
+    }
+
+    .menu a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+
+    .menu a:hover {
+      background-color: #003e82;
+    }
+
+    .menu a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+
+    .content {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 170px; 
+    }
+
+    .book-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-title {
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .book-description {
+      margin: 10px 0;
+    }
+
+    .book-price {
+      color: #0056b3;
+      font-size: 1.1em;
+    }
+
+    .book-icon {
+      width: 100px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .order-button {
+        background-color: #00b327;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .order-button:hover {
+      background-color: #003e82;
+    }
+
+    .remove-button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+    .remove-button:hover {
+        background-color: darkred;
+    }
+
+
+    .order-section {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+   .order-total {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .order-section h2 {
+      font-size: 1.5em;
+    }
+
+    .order-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .order-list li {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+
+    .remove-button {
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .remove-button:hover {
+      background-color: #cc0000;
+    }
+
+    .purchase-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  .paypal-wrapper {
+ 
+            display: inline-grid;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            width: 25%;
+            height: 25%; /* Ensure the wrapper takes the full height of the viewport */
+}
+    .purchase-button:hover {
+      background-color: #45a049;
+    }
+
+    .paypal-form {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .paypal-input {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('science') }}">Science & Engineering</a>
+    <a href="{{ url_for('books') }}">Information Technology</a>
+    <a href="{{ url_for('health') }}">Health Science</a>
+    <a href="{{ url_for('search') }}">Search Books</a>
+    <a href="{{ url_for('contact') }}">Contact Us</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+  <div class="header">
+    <h1>Health Science</h1>
+  </div>
+  <div class="content">
+    <div class="book-container">
+      <a href="Foundations of Health Science.html">
+      <img class="book-icon" src="{{ url_for('static', filename='images/hs1.jpg') }}" alt="Health Science Book"></a>
+      <div class="book-title">Foundations of Health Science</div>
+      <div class="book-description">Comprehensive guide to health science topics.</div>
+      <div class="book-author">Author: Barbara Osborn Henkel</div>
+      <div class="book-price">$100</div>
+      <button class="order-button" data-item="Foundations of Health Science" data-price="100">Order</button>
+    </div>
+    <div class="book-container">
+      <a href="Advanced Topics in Health Informatics.html">
+      <img class="book-icon" src="{{ url_for('static', filename='images/hs2.jpeg') }}" alt="Health Science Book"></a>
+      <div class="book-title">Advanced Topics in Health Informatics</div>
+      <div class="book-description">In-depth analysis of health science principles.</div>
+      <div class="book-author">Author: Professor Richard M.  Greenes</div>
+      <div class="book-price">$55.99</div>
+      <button class="order-button" data-item="Advanced Topics in Health Informatics" data-price="55.99">Order</button>
+    </div>
+    <div class="book-container">
+      <a href="Exploring Medical Research Methods.html">
+      <img class="book-icon" src="{{ url_for('static', filename='images/hs3.jpeg') }}" alt="Health Science Book"></a>
+      <div class="book-title">Exploring Medical Research Methods</div>
+      <div class="book-description">Cutting-edge research in health science.</div>
+      <div class="book-author">Author: Ronald Hopkins</div>
+      <div class="book-price">$66.99</div>
+      <button class="order-button" data-item="Exploring Medical Research Methods" data-price="66.99">Order</button>
+    </div>
+    <div class="book-container">
+      <a href="Practical Applications in Public Health.html">
+      <img class="book-icon" src="{{ url_for('static', filename='images/hs4.jpeg') }}" alt="Health Science Book"></a>
+      <div class="book-title">Practical Applications in Public Health</div>
+      <div class="book-description">Practical applications of health science theories.</div>
+      <div class="book-author">Author: Blendon</div>
+      <div class="book-price">$90.99</div>
+      <button class="order-button" data-item="Practical Applications in Public Health" data-price="90.99">Order</button>
+    </div>
+    <<div class="order-section">
+      <h2>Your Orders</h2>
+      <ul class="order-list">
+     
+      </ul>
+      <div class="order-total">Total: $<span id="total-amount">0.00</span></div>
+    </div>
+    <button class="purchase-button" onclick="showPaypalForm()">Purchase</button>
+        <div class="paypal-wrapper">
+    <!-- PayPal button will be rendered here -->
+</div>
+    <script src="https://www.paypal.com/sdk/js?client-id=Ab7ob8GCluhVGWWWpESFUEuMjFIUxM8ew8zaT1XZLUcmCB1VMedZguFoZ3Ga2RQyRG5kDUeLJMq5fMN7"></script>
+    <script>
+      let orderItems = []; // Array to store items for checkout
+  
+      function initiatePayPalCheckout() {
+        // Initialize PayPal Buttons
+        paypal.Buttons({
+          createOrder: function(data, actions) {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: getTotalAmount().toFixed(2), // Get total amount from order items
+                  currency_code: 'USD'
+                }
+              }]
+            });
+          },
+          onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+              alert('Transaction completed by ' + details.payer.name.given_name + '!');
+  
+              // Clear order items and reset total amount after successful purchase
+              orderItems = [];
+              updateOrderList();
+            });
+          },
+          onError: function(err) {
+            console.error(err);
+            alert('Something went wrong with the payment. Please try again.');
+          }
+        }).render('.order-section');
+      }
+  
+      function addToOrder(title, price) {
+        orderItems.push({ title: title, price: price });
+        updateOrderList();
+      }
+  
+      function updateOrderList() {
+        const orderList = document.querySelector('.order-list');
+        const totalAmountElement = document.getElementById('total-amount');
+  
+        // Clear existing order list
+        orderList.innerHTML = '';
+  
+        // Populate order list with current items
+        orderItems.forEach(item => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${item.title} - $${item.price.toFixed(2)}`;
+  
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Remove';
+          removeButton.className = 'remove-button';
+          removeButton.addEventListener('click', () => removeItem(item));
+  
+          listItem.appendChild(removeButton);
+          orderList.appendChild(listItem);
+        });
+  
+        // Update total amount
+        const totalAmount = getTotalAmount();
+        totalAmountElement.textContent = totalAmount.toFixed(2);
+      }
+  
+      function removeItem(itemToRemove) {
+        orderItems = orderItems.filter(item => item !== itemToRemove);
+        updateOrderList();
+      }
+  
+      function getTotalAmount() {
+        return orderItems.reduce((total, item) => total + item.price, 0);
+      }
+  
+      document.addEventListener('DOMContentLoaded', function() {
+        const orderButtons = document.querySelectorAll('.order-button');
+        
+        orderButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const title = button.getAttribute('data-item');
+            const price = parseFloat(button.getAttribute('data-price'));
+            addToOrder(title, price);
+          });
+        });
+      });
+        function showPaypalForm(){
+            paypal.Buttons({
+            }).render('.paypal-wrapper');
+        }
+    </script>
+  </body>
+  </html>
+  

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .header {
+        background-color: #03010a;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #0056b3;
+        padding: 10px;
+        width: 150px; 
+        position: fixed;
+        top: 80px;
+        bottom: 0;
+        left: 0;
+    }
+
+    .menu a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+
+    .menu a:hover {
+        background-color: #003e82;
+    }
+
+    .content {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 170px; 
+    }
+
+    .book-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .book-title {
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .book-description {
+      margin: 10px 0;
+    }
+    
+    .book-author {
+        margin: 10px 0;
+    }
+
+    .book-price {
+        color: #0056b3;
+        font-size: 1.1em;
+    }
+
+    .order-button {
+        background-color: #00b327;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .order-button:hover {
+        background-color: #003e82;
+    }
+
+    .remove-button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-left: 5px;
+    }
+
+    .remove-button:hover {
+        background-color: darkred;
+    }
+
+    .order-section {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  .paypal-wrapper {
+ 
+            display: inline-grid;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            width: 25%;
+            height: 25%; /* Ensure the wrapper takes the full height of the viewport */
+}
+    .order-total {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .purchase-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #0056b3;
+        color: white;
+        cursor: pointer;
+    }
+
+    .purchase-button:hover {
+        background-color: #003e82;
+        justify-content: center;
+    }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Information Technology</h1>
+  </div>
+  <div class="menu">
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('science') }}">Science & Engineering</a>
+    <a href="{{ url_for('books') }}">Information Technology</a>
+    <a href="{{ url_for('health') }}">Health Science</a>
+    <a href="{{ url_for('search') }}">Search Books</a>
+    <a href="{{ url_for('contact') }}">Contact Us</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+  <div class="content">
+    <div class="book-container">
+    <a href="Introduction to Programming.html">
+      <img src="{{ url_for('static', filename='images/book1.jpeg') }}" alt="Introduction to Programming"></a>
+      <div class="book-title">Introduction to Programming</div>
+      <div class="book-author">Author: Mandeep Zoo</div>
+      <div class="book-description">A comprehensive guide for beginners in programming.</div>
+      <div class="book-price">$19.99</div>
+      <button class="order-button" data-item="Introduction to Programming" data-price="19.99">Order</button>
+    </div>
+    <div class="book-container">
+      <a href="Data Structures and Algorithms.html">
+      <img src="{{ url_for('static', filename='images/book2.jpeg') }}" alt="Data Structures and Algorithms"></a>
+      <div class="book-title">Data Structures and Algorithms</div>
+      <div class="book-author">Author: Prof Hawkins</div>
+      <div class="book-description">A good book to study data structures and algorithms with real-world examples.</div>
+      <div class="book-price">$24.99</div>
+      <button class="order-button" data-item="Data Structures and Algorithms" data-price="24.99">Order</button>
+    </div>
+    <div class="book-container">
+      <a href="History of Science.html">
+      <img src="{{ url_for('static', filename='images/book3.jpeg') }}" alt="History of Science"></a>
+      <div class="book-title">History of Science</div>
+      <div class="book-author">Author: David Scott</div>
+      <div class="book-description">A captivating journey through the history of scientific discoveries and inventions.</div>
+      <div class="book-price">$29.99</div>
+      <button class="order-button" data-item="History of Science" data-price="29.99">Order</button>
+    </div>
+    <div class="book-container">
+      <a href="The Art of Photography.html">
+      <img src="{{ url_for('static', filename='images/book4.jpeg') }}" alt="The Art of Photography"></a>
+      <div class="book-title">The Art of Photography</div>
+      <div class="book-author">Author: Jeff Raskin</div>
+      <div class="book-description">Learn the art of photography from composition to post-processing.</div>
+      <div class="book-price">$21.99</div>
+      <button class="order-button" data-item="The Art of Photography" data-price="21.99">Order</button>
+    </div>
+  </div>
+  <div class="order-section">
+    <h2>Your Orders</h2>
+    <ul class="order-list">
+   
+    </ul>
+    <div class="order-total">Total: $<span id="total-amount">0.00</span></div>
+  </div>
+  <button class="purchase-button" onclick="showPaypalForm()">Purchase</button>
+      <div class="paypal-wrapper">
+    <!-- PayPal button will be rendered here -->
+</div>
+  <script src="https://www.paypal.com/sdk/js?client-id=Ab7ob8GCluhVGWWWpESFUEuMjFIUxM8ew8zaT1XZLUcmCB1VMedZguFoZ3Ga2RQyRG5kDUeLJMq5fMN7"></script>
+  <script>
+    let orderItems = []; // Array to store items for checkout
+
+    function initiatePayPalCheckout() {
+      // Initialize PayPal Buttons
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: getTotalAmount().toFixed(2), // Get total amount from order items
+                currency_code: 'USD'
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+
+            // Clear order items and reset total amount after successful purchase
+            orderItems = [];
+            updateOrderList();
+          });
+        },
+        onError: function(err) {
+          console.error(err);
+          alert('Something went wrong with the payment. Please try again.');
+        }
+      }).render('.order-section');
+    }
+
+    function addToOrder(title, price) {
+      orderItems.push({ title: title, price: price });
+      updateOrderList();
+    }
+
+    function updateOrderList() {
+      const orderList = document.querySelector('.order-list');
+      const totalAmountElement = document.getElementById('total-amount');
+
+      // Clear existing order list
+      orderList.innerHTML = '';
+
+      // Populate order list with current items
+      orderItems.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.title} - $${item.price.toFixed(2)}`;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove';
+        removeButton.className = 'remove-button';
+        removeButton.addEventListener('click', () => removeItem(item));
+
+        listItem.appendChild(removeButton);
+        orderList.appendChild(listItem);
+      });
+
+      // Update total amount
+      const totalAmount = getTotalAmount();
+      totalAmountElement.textContent = totalAmount.toFixed(2);
+    }
+
+    function removeItem(itemToRemove) {
+      orderItems = orderItems.filter(item => item !== itemToRemove);
+      updateOrderList();
+    }
+
+    function getTotalAmount() {
+      return orderItems.reduce((total, item) => total + item.price, 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const orderButtons = document.querySelectorAll('.order-button');
+      
+      orderButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const title = button.getAttribute('data-item');
+          const price = parseFloat(button.getAttribute('data-price'));
+          addToOrder(title, price);
+        });
+      });
+    });
+   function showPaypalForm(){
+            paypal.Buttons({
+            }).render('.paypal-wrapper');
+        }
+  </script>
+</div>
+</body>
+</html>

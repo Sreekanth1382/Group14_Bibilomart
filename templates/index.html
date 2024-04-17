@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to BibiloMart - Online Bookstore</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    /* Image Slider */
+    .slideshow-container {
+      max-width: 100%;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .slides {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Menu */
+    .menu {
+      text-align: center;
+      padding: 15px 0;
+      background-color: #333;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    .menu a:hover {
+      color: #ffd700;
+    }
+
+    /* Jumbotron */
+    .jumbotron {
+      text-align: center;
+      padding: 80px 20px;
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .jumbotron h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .jumbotron p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .jumbotron .btn {
+      font-size: 20px;
+      padding: 10px 30px;
+      border-radius: 30px;
+      background-color: #ffd700;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .jumbotron .btn:hover {
+      background-color: #ffcc00;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .menu a {
+        font-size: 16px;
+      }
+
+      .jumbotron h1 {
+        font-size: 36px;
+      }
+
+      .jumbotron p {
+        font-size: 18px;
+      }
+
+      .jumbotron .btn {
+        font-size: 18px;
+        padding: 8px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>BibiloMart</h1>
+</div>
+
+<div class="menu">
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('science') }}">Science & Engineering</a>
+  <a href="{{ url_for('books') }}">Information Technology</a>
+  <a href="{{ url_for('health') }}">Health Science</a>
+  <a href="{{ url_for('contact') }}">Contact Us</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<div class="jumbotron">
+  <h1>Welcome to BibiloMart</h1>
+  <p>Discover a vast collection of books and enjoy a seamless shopping experience!</p>
+  <p>Explore our categories or search for your favorite books.</p>
+  <a href="{{ url_for('books') }}" class="btn">Browse Books</a>
+</div>
+
+<div class="slideshow-container">
+  <img class="slides" src="{{ url_for('static', filename='images/book1.jpeg') }}">
+  <img class="slides" src="{{ url_for('static', filename='images/book2.jpeg') }}">
+  <img class="slides" src="{{ url_for('static', filename='images/book3.jpeg') }}">
+  <img class="slides" src="{{ url_for('static', filename='images/book4.jpeg') }}">
+</div>
+
+<script>
+  var slideIndex = 0;
+  carousel();
+
+  function carousel() {
+    var i;
+    var slides = document.getElementsByClassName("slides");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+  }
+</script>
+
+</body>
+</html>
