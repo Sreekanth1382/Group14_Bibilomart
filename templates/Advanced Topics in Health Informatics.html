@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Topics in Health Informatics</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.book-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.book-header img {
+    width: 500px; /* Adjust the width as needed */
+    height: 350px;
+    margin-right: 20px;
+}
+
+
+.book-info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #333;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.star {
+    display: inline-block;
+}
+
+.rating-value {
+    margin-left: 5px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 95%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-text {
+    margin-top: 5px;
+}
+</style>
+<body>
+    <div class="book-details">
+        <div class="book-header">
+            <img src="{{ url_for('static', filename='images/hs2.jpeg') }}" alt="Health Informatics">
+            <div class="book-info">
+                <h1>Advanced Topics in Health Informatics</h1>
+                <h4>Author: Professor Richard M. Greenes</h4>
+                <p>
+
+"Advanced Topics in Health Informatics" authored by Professor Richard M. Greenes is an authoritative exploration of complex subjects within the field of health informatics. As a distinguished expert in the field, Professor Greenes delves into advanced concepts and emerging trends that are shaping the future of healthcare technology and information management.
+<br><br>
+This comprehensive textbook covers a wide array of topics such as health data analytics, clinical decision support systems, telemedicine, artificial intelligence in healthcare, and privacy and security issues in health information technology. Through detailed explanations, case studies, and practical examples, Professor Greenes provides readers with an in-depth understanding of the latest advancements and challenges in health informatics.</p> <!-- Added description -->
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="rating-value">3.9</span>
+                </div>
+                <p>Reviews: 67</p>
+            </div>
+        </div>
+        <div class="write-review">
+            <h2>Write a Review</h2>
+            <form id="reviewForm">
+                <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <p class="reviewer">Sarah Johnson</p>
+                <p class="review-text"> "Professor Greenes' 'Advanced Topics in Health Informatics' is a must-read for anyone seeking a deeper understanding of the complexities of healthcare technology. The book offers a comprehensive overview of advanced concepts and emerging trends in health informatics, presented in a clear and accessible manner. I particularly appreciated the real-world case studies that helped illustrate the practical applications of these advanced technologies. Whether you're a healthcare professional, researcher, or student, this textbook provides invaluable insights into the future of healthcare."</p>
+            </div>
+            <div class="review">
+                <p class="reviewer">Michael Thompson</p>
+                <p class="review-text"> "As someone working in the healthcare IT industry, I found 'Advanced Topics in Health Informatics' to be an excellent resource for staying updated on the latest developments in the field. Professor Greenes covers a wide range of advanced topics with depth and clarity, making complex concepts understandable. However, some sections could benefit from more detailed examples and practical implementation strategies. Overall, this book is an essential read for anyone involved in healthcare technology and informatics."
+
+</p>
+            </div>
+            <div class="reviews">
+            
+            <div id="previousReviews">
+                <!-- Existing reviews will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+     document.getElementById("reviewForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the written review text
+    var reviewText = document.getElementById("reviewText").value;
+
+    // Create review elements
+    var reviewContainer = document.createElement("div");
+    reviewContainer.classList.add("review");
+
+    var reviewerElement = document.createElement("p");
+    reviewerElement.classList.add("reviewer");
+    reviewerElement.textContent = "You"; // Assuming the reviewer is the current user
+
+    var reviewTextElement = document.createElement("p");
+    reviewTextElement.classList.add("review-text");
+    reviewTextElement.textContent = reviewText;
+
+    // Append review elements to the container
+    reviewContainer.appendChild(reviewerElement);
+    reviewContainer.appendChild(reviewTextElement);
+
+    // Add the new review to the reviews section
+    var previousReviews = document.getElementById("previousReviews");
+    previousReviews.appendChild(reviewContainer);
+
+    // Clear the textarea
+    document.getElementById("reviewText").value = "";
+});
+
+ </script>
+</body>
+</html>

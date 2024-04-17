@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Photography</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.book-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.book-header img {
+    width: 250px; /* Adjust the width as needed */
+    height: 300px;
+    margin-right: 20px;
+}
+
+
+.book-info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #333;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.star {
+    display: inline-block;
+}
+
+.rating-value {
+    margin-left: 5px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 95%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-text {
+    margin-top: 5px;
+}
+</style>
+<body>
+    <div class="book-details">
+        <div class="book-header">
+            <img src="{{ url_for('static', filename='images/book4.jpeg') }}" alt="The Art of Photography">
+            <div class="book-info">
+                <h1>The Art of Photography</h1>
+                <h4>Author: Jeff Raskin</h4>
+                <p>"The Art of Photography" by Jeff Raskin is a comprehensive guidebook that explores the principles, techniques, and aesthetics of photography. Authored by Jeff Raskin, an experienced photographer and educator, this book offers invaluable insights for photographers of all levels, from beginners to advanced practitioners.
+<br><br>
+Covering a wide range of topics such as composition, lighting, exposure, color theory, and post-processing, "The Art of Photography" provides practical advice, creative inspiration, and technical know-how to help readers improve their photography skills and develop their artistic vision.</p> <!-- Added description -->
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="rating-value">4.1</span>
+                </div>
+                <p>Reviews: 211</p>
+            </div>
+        </div>
+        <div class="write-review">
+            <h2>Write a Review</h2>
+            <form id="reviewForm">
+                <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <p class="reviewer">Sarah Johnson</p>
+                <p class="review-text"> This is a masterpiece that every photographer should have in their collection. The book not only covers the technical aspects of photography but also delves deep into the creative and expressive aspects of the art form. Raskin's insights and guidance are both practical and inspirational, encouraging readers to explore their own unique vision and style. Whether you're a novice or a seasoned photographer, this book is an invaluable resource for honing your craft and elevating your work to new heights."</p>
+            </div>
+            <div class="review">
+                <p class="reviewer">Michael Thompson</p>
+                <p class="review-text">"'The Art of Photography' offers a wealth of information and advice, I found some sections to be overly basic, particularly for more experienced photographers. The book covers essential topics comprehensively, but I wished for more advanced techniques and insights to challenge and inspire seasoned practitioners. Additionally, the emphasis on digital photography may not fully cater to photographers who prefer analog or alternative processes. Overall, it's a great resource for beginners and enthusiasts, but more experienced photographers may find it lacking in depth."
+
+</p>
+            </div>
+            <div class="reviews">
+            
+            <div id="previousReviews">
+                <!-- Existing reviews will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+     document.getElementById("reviewForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the written review text
+    var reviewText = document.getElementById("reviewText").value;
+
+    // Create review elements
+    var reviewContainer = document.createElement("div");
+    reviewContainer.classList.add("review");
+
+    var reviewerElement = document.createElement("p");
+    reviewerElement.classList.add("reviewer");
+    reviewerElement.textContent = "You"; // Assuming the reviewer is the current user
+
+    var reviewTextElement = document.createElement("p");
+    reviewTextElement.classList.add("review-text");
+    reviewTextElement.textContent = reviewText;
+
+    // Append review elements to the container
+    reviewContainer.appendChild(reviewerElement);
+    reviewContainer.appendChild(reviewTextElement);
+
+    // Add the new review to the reviews section
+    var previousReviews = document.getElementById("previousReviews");
+    previousReviews.appendChild(reviewContainer);
+
+    // Clear the textarea
+    document.getElementById("reviewText").value = "";
+});
+
+ </script>
+</body>
+</html>

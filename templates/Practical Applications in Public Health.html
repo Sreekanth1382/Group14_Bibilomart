@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Applications in Public Health</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.book-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.book-header img {
+    width: 500px; /* Adjust the width as needed */
+    height: 350px;
+    margin-right: 20px;
+}
+
+
+.book-info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #333;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.star {
+    display: inline-block;
+}
+
+.rating-value {
+    margin-left: 5px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 95%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-text {
+    margin-top: 5px;
+}
+</style>
+<body>
+    <div class="book-details">
+        <div class="book-header">
+            <img src="{{ url_for('static', filename='images/hs4.jpeg') }}" alt="Practical Applications in Public Health">
+            <div class="book-info">
+                <h1>Practical Applications in Public Health</h1>
+                <h4>Author: Blendon</h4>
+                <p>
+
+
+"Practical Applications in Public Health" authored by Blendon offers a comprehensive exploration of the practical aspects of public health interventions and strategies. Written by a recognized authority in the field, this textbook provides valuable insights and guidance for public health professionals, policymakers, and students alike.
+<br><br>
+Covering a wide range of topics such as epidemiology, health promotion, disease prevention, health policy, and healthcare delivery, "Practical Applications in Public Health" emphasizes the real-world application of theoretical concepts. Blendon combines evidence-based practices with practical examples and case studies to illustrate effective public health interventions and strategies.</p> <!-- Added description -->
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="rating-value">3.1</span>
+                </div>
+                <p>Reviews: 19</p>
+            </div>
+        </div>
+        <div class="write-review">
+            <h2>Write a Review</h2>
+            <form id="reviewForm">
+                <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <p class="reviewer">Sarah Johnson</p>
+                <p class="review-text">This is an indispensable resource for anyone working in the field of public health. The book offers a comprehensive overview of practical strategies and interventions, presented in a clear and accessible manner. I appreciated the emphasis on evidence-based practices and the inclusion of real-world case studies that highlight successful public health initiatives. Whether you're a public health practitioner, policymaker, or student, this textbook provides valuable insights and practical guidance to address pressing public health challenges.</p>
+            </div>
+            <div class="review">
+                <p class="reviewer"> Michael Thompson</p>
+                <p class="review-text"> I found 'Practical Applications in Public Health' to be a valuable resource for enhancing my practice. Blendon covers a wide range of topics with depth and clarity, providing practical strategies for addressing complex public health issues. However, I wished for more emphasis on addressing health disparities and promoting health equity. Additionally, some sections could benefit from more detailed examples of successful interventions and implementation strategies. Overall, this textbook is a valuable resource for public health practitioners, but readers may need to supplement it with additional resources for a more comprehensive understanding of certain topics.
+</p>
+            </div>
+            <div class="reviews">
+            
+            <div id="previousReviews">
+                <!-- Existing reviews will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+     document.getElementById("reviewForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the written review text
+    var reviewText = document.getElementById("reviewText").value;
+
+    // Create review elements
+    var reviewContainer = document.createElement("div");
+    reviewContainer.classList.add("review");
+
+    var reviewerElement = document.createElement("p");
+    reviewerElement.classList.add("reviewer");
+    reviewerElement.textContent = "You"; // Assuming the reviewer is the current user
+
+    var reviewTextElement = document.createElement("p");
+    reviewTextElement.classList.add("review-text");
+    reviewTextElement.textContent = reviewText;
+
+    // Append review elements to the container
+    reviewContainer.appendChild(reviewerElement);
+    reviewContainer.appendChild(reviewTextElement);
+
+    // Add the new review to the reviews section
+    var previousReviews = document.getElementById("previousReviews");
+    previousReviews.appendChild(reviewContainer);
+
+    // Clear the textarea
+    document.getElementById("reviewText").value = "";
+});
+
+ </script>
+</body>
+</html>

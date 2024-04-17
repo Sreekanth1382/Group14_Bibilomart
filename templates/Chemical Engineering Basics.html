@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Engineering Basics</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.book-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.book-header img {
+    width: 500px; /* Adjust the width as needed */
+    height: 350px;
+    margin-right: 20px;
+}
+
+
+.book-info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #333;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.star {
+    display: inline-block;
+}
+
+.rating-value {
+    margin-left: 5px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 95%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-text {
+    margin-top: 5px;
+}
+</style>
+<body>
+    <div class="book-details">
+        <div class="book-header">
+
+            <img src="{{ url_for('static', filename='images/chem1.jpg') }}" alt="Chemical Engineering Basics">
+            <div class="book-info">
+                <h1>Chemical Engineering Basics</h1>
+                <h4>Author: James Riggs</h4>
+                <p>"Chemical Engineering Basics" by James Riggs is a foundational textbook offering a comprehensive introduction to the fundamental principles of chemical engineering. Authored by James H. Riggs, this book serves as an essential resource for students embarking on their journey into the field of chemical engineering.
+<br><br>
+Covering key topics such as material balances, energy balances, fluid flow, heat transfer, and chemical reactions, "Chemical Engineering Basics" provides clear explanations and practical examples to aid comprehension. Riggs aims to equip readers with the knowledge and skills necessary to solve engineering problems and understand core concepts in chemical processes.
+</p> <!-- Added description -->
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="rating-value">4.0</span>
+                </div>
+                <p>Reviews: 116</p>
+            </div>
+        </div>
+        <div class="write-review">
+            <h2>Write a Review</h2>
+            <form id="reviewForm">
+                <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <p class="reviewer">Emily Martinez</p>
+                <p class="review-text">"Riggs' 'Chemical Engineering Basics' is a fantastic resource for students new to the field. The book offers a well-structured approach to understanding complex topics, with clear explanations and numerous examples. I appreciated the emphasis on real-world applications, which helped me connect theoretical concepts to practical engineering problems. Whether you're a beginner or looking to refresh your understanding, this book is an invaluable asset."</p>
+            </div>
+            <div class="review">
+                <p class="reviewer">Michael Johnson</p>
+                <p class="review-text">"While 'Chemical Engineering Basics' covers all the essential topics, I found some sections to be lacking in depth. The explanations are clear, but I wished for more advanced discussions and real-world examples. Additionally, the exercises at the end of chapters could be more challenging to fully test comprehension. Overall, it's a good starting point for beginners, but readers may need to supplement it with additional resources for a deeper understanding of certain topics."
+</p>
+            </div>
+            <div class="reviews">
+            
+            <div id="previousReviews">
+                <!-- Existing reviews will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+     document.getElementById("reviewForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the written review text
+    var reviewText = document.getElementById("reviewText").value;
+
+    // Create review elements
+    var reviewContainer = document.createElement("div");
+    reviewContainer.classList.add("review");
+
+    var reviewerElement = document.createElement("p");
+    reviewerElement.classList.add("reviewer");
+    reviewerElement.textContent = "You"; // Assuming the reviewer is the current user
+
+    var reviewTextElement = document.createElement("p");
+    reviewTextElement.classList.add("review-text");
+    reviewTextElement.textContent = reviewText;
+
+    // Append review elements to the container
+    reviewContainer.appendChild(reviewerElement);
+    reviewContainer.appendChild(reviewTextElement);
+
+    // Add the new review to the reviews section
+    var previousReviews = document.getElementById("previousReviews");
+    previousReviews.appendChild(reviewContainer);
+
+    // Clear the textarea
+    document.getElementById("reviewText").value = "";
+});
+
+ </script>
+</body>
+</html>

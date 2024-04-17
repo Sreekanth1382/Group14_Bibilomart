@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Mathematics</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.book-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.book-header img {
+    width: 350px; /* Adjust the width as needed */
+    height: 200px;
+    margin-top: 80px;
+    margin-right: 20px;
+    transform: rotate(90deg); /* Rotate the image by 90 degrees */
+}
+
+.book-info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #333;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.star {
+    display: inline-block;
+}
+
+.rating-value {
+    margin-left: 5px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 95%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-text {
+    margin-top: 5px;
+}
+</style>
+<body>
+    <div class="book-details">
+        <div class="book-header">
+            <img src="{{ url_for('static', filename='images/adv1.jpg') }}" alt="Advanced Mathematics">
+            <div class="book-info">
+                <h1>Advanced Mathematics</h1>
+                <h4>Author: Celia, A T F Nice</h4>
+                <p>
+"Advanced Mathematics" by Celia, A T F Nice is an in-depth textbook that explores various advanced topics in mathematics. Authored by Celia A. T. F. Nice, this book is designed for students and professionals seeking a deeper understanding of mathematical concepts beyond the basic level.
+<br><br>
+Covering topics such as calculus, linear algebra, differential equations, and more, "Advanced Mathematics" offers comprehensive explanations and rigorous proofs to help readers grasp complex mathematical ideas. The book typically includes a wide range of exercises and problems to challenge readers and reinforce learning.
+</p> <!-- Added description -->
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="rating-value">4.1</span>
+                </div>
+                <p>Reviews: 55</p>
+            </div>
+        </div>
+        <div class="write-review">
+            <h2>Write a Review</h2>
+            <form id="reviewForm">
+                <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <p class="reviewer">Emily Parker</p>
+                <p class="review-text"> "Celia's 'Advanced Mathematics' is a fantastic resource for anyone looking to expand their mathematical knowledge. The book is well-organized, with clear explanations and plenty of examples to illustrate key concepts. I particularly appreciated the inclusion of challenging exercises that really test your understanding. Whether you're a student or a professional, this book is sure to deepen your appreciation for the beauty of advanced mathematics."</p>
+            </div>
+            <div class="review">
+                <p class="reviewer">David Smith</p>
+                <p class="review-text">"While 'Advanced Mathematics' covers a broad range of topics, I found some sections to be overly theoretical and lacking in practical applications. The book could benefit from more real-world examples to help readers understand how these advanced concepts are used in various fields. Additionally, the exercises, while plentiful, could be better structured to provide more gradual difficulty progression. Overall, it's a solid reference for theoretical understanding but may not fully meet the needs of those seeking practical applications."
+</p>
+            </div>
+            <div class="reviews">
+            
+            <div id="previousReviews">
+                <!-- Existing reviews will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+     document.getElementById("reviewForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the written review text
+    var reviewText = document.getElementById("reviewText").value;
+
+    // Create review elements
+    var reviewContainer = document.createElement("div");
+    reviewContainer.classList.add("review");
+
+    var reviewerElement = document.createElement("p");
+    reviewerElement.classList.add("reviewer");
+    reviewerElement.textContent = "You"; // Assuming the reviewer is the current user
+
+    var reviewTextElement = document.createElement("p");
+    reviewTextElement.classList.add("review-text");
+    reviewTextElement.textContent = reviewText;
+
+    // Append review elements to the container
+    reviewContainer.appendChild(reviewerElement);
+    reviewContainer.appendChild(reviewTextElement);
+
+    // Add the new review to the reviews section
+    var previousReviews = document.getElementById("previousReviews");
+    previousReviews.appendChild(reviewContainer);
+
+    // Clear the textarea
+    document.getElementById("reviewText").value = "";
+});
+
+ </script>
+</body>
+</html>

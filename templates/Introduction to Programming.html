@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Programming</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.book-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.book-header img {
+    width: 500px; /* Adjust the width as needed */
+    height: 350px;
+    margin-right: 20px;
+}
+
+
+.book-info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #333;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.star {
+    display: inline-block;
+}
+
+.rating-value {
+    margin-left: 5px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 95%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.reviewer {
+    font-weight: bold;
+}
+
+.review-text {
+    margin-top: 5px;
+}
+</style>
+<body>
+    <div class="book-details">
+        <div class="book-header">
+            <img src="{{ url_for('static', filename='images/book1.jpeg') }}" alt="Introduction to Programming">
+            <div class="book-info">
+                <h1>Introduction to Programming</h1>
+                <h4>Author: Mandeep Zoo</h4>
+                <p>"Introduction to Programming" typically serves as a foundational guide for beginners looking to learn the basics of programming languages and concepts. It often covers fundamental topics such as variables, data types, control structures (like loops and conditionals), functions, and basic algorithms. The book may also introduce students to problem-solving strategies and the principles of writing efficient, maintainable code.<br><br>
+
+Depending on the specific edition or author, the book may focus on a particular programming language such as Python, Java, C++, or JavaScript, or it might offer a language-agnostic approach, focusing more on fundamental programming principles rather than syntax.<br><br>
+
+Overall, "Introduction to Programming" aims to equip readers with the essential skills and knowledge needed to start their journey in the world of computer programming.</p> <!-- Added description -->
+                <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                    <span class="rating-value">4.0</span>
+                </div>
+                <p>Reviews: 69</p>
+            </div>
+        </div>
+        <div class="write-review">
+            <h2>Write a Review</h2>
+            <form id="reviewForm">
+                <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="reviews">
+            <h2>Reviews</h2>
+            <div class="review">
+                <p class="reviewer">Sarah Johnson</p>
+                <p class="review-text"> "As someone completely new to programming, I found this book to be incredibly helpful. The explanations are clear, and the examples are easy to follow. I appreciated how the author broke down complex concepts into simple terms, making it less intimidating for beginners like me. By the end of the book, I felt confident enough to start writing my own programs. Highly recommended for anyone starting their programming journey!"</p>
+            </div>
+            <div class="review">
+                <p class="reviewer">Alex Chen</p>
+                <p class="review-text">"While this book covers the basics adequately, I found it lacking in depth for more advanced topics. As someone with some prior programming experience, I was hoping for a bit more depth in areas like data structures and algorithms. Additionally, the exercises at the end of each chapter felt too simplistic and didn't challenge me enough. Overall, it's a decent introduction for absolute beginners, but I would recommend supplementing it with additional resources for a more comprehensive understanding of programming."
+
+</p>
+            </div>
+            <div class="reviews">
+            
+            <div id="previousReviews">
+                <!-- Existing reviews will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+ <script type="text/javascript">
+     document.getElementById("reviewForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the written review text
+    var reviewText = document.getElementById("reviewText").value;
+
+    // Create review elements
+    var reviewContainer = document.createElement("div");
+    reviewContainer.classList.add("review");
+
+    var reviewerElement = document.createElement("p");
+    reviewerElement.classList.add("reviewer");
+    reviewerElement.textContent = "You"; // Assuming the reviewer is the current user
+
+    var reviewTextElement = document.createElement("p");
+    reviewTextElement.classList.add("review-text");
+    reviewTextElement.textContent = reviewText;
+
+    // Append review elements to the container
+    reviewContainer.appendChild(reviewerElement);
+    reviewContainer.appendChild(reviewTextElement);
+
+    // Add the new review to the reviews section
+    var previousReviews = document.getElementById("previousReviews");
+    previousReviews.appendChild(reviewContainer);
+
+    // Clear the textarea
+    document.getElementById("reviewText").value = "";
+});
+
+ </script>
+</body>
+</html>
