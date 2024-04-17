@@ -11,7 +11,8 @@ Order Management: Users can track their orders and manage their purchases throug
 Payment Integration: Secure payment processing integration, allowing users to make purchases using various payment methods.
 Reviews and Ratings: Users can leave reviews and ratings for books they've purchased, helping others make informed decisions.
 Responsive Design: The platform is designed to be responsive, ensuring a seamless experience across different devices and screen sizes.
-Installation
+
+<h2>Installation</h2>
 To run Bibilomart locally, follow these steps:
 
 Clone this repository to your local machine.
@@ -20,7 +21,8 @@ Install dependencies by running npm install or yarn install.
 Set up environment variables as needed.
 Start the development server by running npm start or yarn start.
 Access the application in your web browser at http://localhost:3000.
-Technologies Used
+
+<h2>Technologies Used</h2>
 Frontend: React.js, Redux, HTML, CSS
 Backend: Node.js, Express.js, MongoDB
 Authentication: JSON Web Tokens (JWT)
@@ -29,10 +31,7 @@ Deployment: Heroku, Netlify
 Contributing
 Contributions to Bibilomart are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
-License
-This project is licensed under the MIT License.
-
-Acknowledgements
+<h2>Acknowledgements</h2>
 The Bibilomart team acknowledges the invaluable support of the open-source community and the contributions of its members.
 Special thanks to [Insert Name Here] for their guidance and mentorship throughout the development process.
 Contact
