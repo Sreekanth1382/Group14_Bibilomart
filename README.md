@@ -78,20 +78,6 @@ To customize the application, you can modify the following:
 - **HTML Templates**: Customize the HTML templates to change the layout, styling, and content of the pages.
 - **Flask Routes**: Add or modify the Flask routes to introduce new functionality or pages.
 
-<h4>Bibilomart - A Book Marketplace Web Application</h4>
-Bibilomart is a web application that allows users to browse and purchase books. It provides a user-friendly interface for searching, viewing book details, and managing user accounts.
-<h3>Features</h3>
-
-1.	User Registration and Login: Users can create an account and log in to the application.
-    
-2.	Book Catalog: The application displays a catalog of books, including their titles, authors, descriptions, and prices.
-
-3.	Book Search: Users can search for books based on title or author.
-
-4.	Book Details: Users can view detailed information about a specific book, including its title, author, description, and price.
-
-5.	Admin Access: The application provides an admin interface for managing the book catalog and user accounts.
-
 <h4>Technologies Used</h4>
 
 •	Backend: Flask (Python web framework)
@@ -100,41 +86,7 @@ Bibilomart is a web application that allows users to browse and purchase books. 
 
 •	Frontend: HTML, CSS, JavaScript
 
-<h4>Installation and Setup</h4>
 
-1.	Clone the repository:
-
-2.	git clone https://github.com/sreekanth-82/Group14_Bibilomart.git
-
-3.	Navigate to the project directory:
-
-4.	cd bibilomart
-
-5.	Make sure you install python
-
-6.	pip install flask
-
-7.	run app.py
-
-8.	Open your web browser and navigate to http://127.0.0.1:5000 to access the Bibilomart application.
-
-
-<h4>Usage</h4>
-
-1.	Registration and Login:
-•	Visit the registration page and create a new account.
-•	Log in to the application using your registered credentials.
-
-2.	Browsing the Book Catalog:
-•	The homepage displays the available books.
-•	Use the search functionality to find books based on title or author.
-
-3.	Viewing Book Details:
-•	Click on a book to view its detailed information, including the title, author, description, and price.
-
-4.	Admin Access:
-•	The admin interface is accessible at the /admin route.
-•	The admin can manage the book catalog and user accounts.
 
 <h3>Contributions</h3>
 
