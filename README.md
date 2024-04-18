@@ -72,14 +72,19 @@ This web application provides a simple user authentication system and a book cat
 <h3>Screenshots</h3>
 
 1.	Register
+![Register](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/d390b2b2-e02f-4b20-b4fe-fd88cc211115)
 
 2.	Home Page
+![Home Page](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/11e06ebe-53e7-4ebb-9822-72deeaa2cbf8)
 
 3.	Browse Books
+![Browse Books](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/2e9eb6e7-08db-469c-82ba-d3e45a21c9fe)
 
 4.	Book Details
+![Book Details](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/fe26dade-9a7e-4766-9c93-b30db2394b13)
 
 5.	Search Page
+![Search Book](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/b4ccd47e-9cbb-44cd-a81a-a32583d9dce2)
 
 
 <h3>Customization</h3>
