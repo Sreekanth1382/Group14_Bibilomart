@@ -69,6 +69,19 @@ This web application provides a simple user authentication system and a book cat
   - `contact.html`: The contact page.
   - `book_pages/`: Directory containing individual book pages.
 
+<h3>Screenshots</h3>
+
+1.	Register
+
+2.	Home Page
+
+3.	Browse Books
+
+4.	Book Details
+
+5.	Search Page
+
+
 <h3>Customization</h3>
 
 To customize the application, you can modify the following:
