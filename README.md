@@ -72,19 +72,19 @@ This web application provides a simple user authentication system and a book cat
 <h3>Screenshots</h3>
 
 1.	Register
-![Register](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/d390b2b2-e02f-4b20-b4fe-fd88cc211115)
+<img src= "https://github.com/sreekanth-82/Group14_Bibilomart/blob/main/Screenshots/Register.jpg" width =600px height= 337px>
 
 2.	Home Page
-![Home Page](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/11e06ebe-53e7-4ebb-9822-72deeaa2cbf8)
+<img src= "https://github.com/sreekanth-82/Group14_Bibilomart/blob/main/Screenshots/Home%20Page.jpg" width =600px height= 337px>
 
 3.	Browse Books
-![Browse Books](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/2e9eb6e7-08db-469c-82ba-d3e45a21c9fe)
+<img src= "https://github.com/sreekanth-82/Group14_Bibilomart/blob/main/Screenshots/Browse%20Books.jpg" width =600px height= 337px>
 
 4.	Book Details
-![Book Details](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/fe26dade-9a7e-4766-9c93-b30db2394b13)
+<img src= "https://github.com/sreekanth-82/Group14_Bibilomart/blob/main/Screenshots/Book%20Details.jpg" width =600px height= 337px>
 
-5.	Search Page
-![Search Book](https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/b4ccd47e-9cbb-44cd-a81a-a32583d9dce2)
+5.	Search Book
+<img src= "https://github.com/sreekanth-82/Group14_Bibilomart/blob/main/Screenshots/Search%20Book.jpg" width =600px height= 337px>
 
 
 <h3>Customization</h3>
