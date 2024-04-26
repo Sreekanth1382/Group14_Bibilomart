@@ -1,6 +1,8 @@
 <h2>BibiloMart</h2>
 
 This project is a web application for an online bookstore called "BibiloMart" developed using the Flask web framework in Python. It integrates a SQLite database to store user accounts and book information, supports user authentication and registration, and allows customers to browse, search, and view details of available books. The application also includes additional pages for content related to health, science, and contact information.
+<h3>Architecture</h3>
+<img src="https://github.com/sreekanth-82/Group14_Bibilomart/assets/82666436/aa4d7a4f-7ecb-4eac-8c3a-b5b0f8170c66" width =460px height= 500px)>
 
 <h3>Main Features: </h3>
 
